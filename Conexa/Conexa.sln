@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{295AF5B1-2630-4822-AC37-81188979E57B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{8089F2B8-E94A-4223-B4A8-FAEEAE48C15C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{A634D6AB-F72E-4F43-87AB-80130F58F5E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Domain", "4 - Domain", "{CDC945BB-78C9-4C96-BF52-DACE514236F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{AE3655E8-5D8A-4257-BC3F-440C99B7884A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conexa.Services.API", "src\Conexa.Services.API\Conexa.Services.API.csproj", "{C813F7BB-962A-41D0-A99D-748A46839003}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conexa.Application", "src\Conexa.Application\Conexa.Application.csproj", "{38E2A720-F5D0-4E01-9CC5-6BA0B47F7294}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conexa.Domain", "src\Conexa.Domain\Conexa.Domain.csproj", "{3B03DD03-77A8-4540-A9F9-EC26CF48E63E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 - Integracoes", "5.1 - Integracoes", "{0EAF8D86-8F01-4017-92BD-86128EE73727}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenWeather", "OpenWeather", "{0573F391-F3A4-482A-BAF6-20F5FCD86381}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conexa.Infra.Integracoes.OpenWeather", "src\Conexa.Infra.Integracoes.OpenWeather\Conexa.Infra.Integracoes.OpenWeather.csproj", "{3D6EB00D-36C9-41C4-A842-A47CCEDC6476}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Spotify", "Spotify", "{C3A66B19-A393-43B8-9E95-31B6A0A02997}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conexa.Infra.Integracoes.Spotify", "src\Conexa.Infra.Integracoes.Spotify\Conexa.Infra.Integracoes.Spotify.csproj", "{2871F926-8A6E-46CF-B708-A9C9C896AA6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C813F7BB-962A-41D0-A99D-748A46839003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C813F7BB-962A-41D0-A99D-748A46839003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C813F7BB-962A-41D0-A99D-748A46839003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C813F7BB-962A-41D0-A99D-748A46839003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38E2A720-F5D0-4E01-9CC5-6BA0B47F7294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E2A720-F5D0-4E01-9CC5-6BA0B47F7294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E2A720-F5D0-4E01-9CC5-6BA0B47F7294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E2A720-F5D0-4E01-9CC5-6BA0B47F7294}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B03DD03-77A8-4540-A9F9-EC26CF48E63E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B03DD03-77A8-4540-A9F9-EC26CF48E63E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B03DD03-77A8-4540-A9F9-EC26CF48E63E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B03DD03-77A8-4540-A9F9-EC26CF48E63E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D6EB00D-36C9-41C4-A842-A47CCEDC6476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D6EB00D-36C9-41C4-A842-A47CCEDC6476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D6EB00D-36C9-41C4-A842-A47CCEDC6476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D6EB00D-36C9-41C4-A842-A47CCEDC6476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2871F926-8A6E-46CF-B708-A9C9C896AA6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2871F926-8A6E-46CF-B708-A9C9C896AA6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2871F926-8A6E-46CF-B708-A9C9C896AA6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2871F926-8A6E-46CF-B708-A9C9C896AA6C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C813F7BB-962A-41D0-A99D-748A46839003} = {8089F2B8-E94A-4223-B4A8-FAEEAE48C15C}
+		{38E2A720-F5D0-4E01-9CC5-6BA0B47F7294} = {A634D6AB-F72E-4F43-87AB-80130F58F5E1}
+		{3B03DD03-77A8-4540-A9F9-EC26CF48E63E} = {CDC945BB-78C9-4C96-BF52-DACE514236F3}
+		{0EAF8D86-8F01-4017-92BD-86128EE73727} = {AE3655E8-5D8A-4257-BC3F-440C99B7884A}
+		{0573F391-F3A4-482A-BAF6-20F5FCD86381} = {0EAF8D86-8F01-4017-92BD-86128EE73727}
+		{3D6EB00D-36C9-41C4-A842-A47CCEDC6476} = {0573F391-F3A4-482A-BAF6-20F5FCD86381}
+		{C3A66B19-A393-43B8-9E95-31B6A0A02997} = {0EAF8D86-8F01-4017-92BD-86128EE73727}
+		{2871F926-8A6E-46CF-B708-A9C9C896AA6C} = {C3A66B19-A393-43B8-9E95-31B6A0A02997}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {002F8F84-4D82-467C-B6CD-A379DD6E16B6}
+	EndGlobalSection
+EndGlobal

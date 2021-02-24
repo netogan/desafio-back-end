@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DomainValidationCore" Version="1.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Conexa.Infra.Integracoes.OpenWeather\Conexa.Infra.Integracoes.OpenWeather.csproj" />
+    <ProjectReference Include="..\Conexa.Infra.Integracoes.Spotify\Conexa.Infra.Integracoes.Spotify.csproj" />
+  </ItemGroup>
+
+</Project>
