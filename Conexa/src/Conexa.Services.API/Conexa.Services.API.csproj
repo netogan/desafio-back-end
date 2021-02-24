@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Conexa.Application\Conexa.Application.csproj" />
     <ProjectReference Include="..\Conexa.Infra.Integracoes.OpenWeather\Conexa.Infra.Integracoes.OpenWeather.csproj" />
+    <ProjectReference Include="..\Conexa.Infra.Integracoes.Spotify\Conexa.Infra.Integracoes.Spotify.csproj" />
   </ItemGroup>
 
 

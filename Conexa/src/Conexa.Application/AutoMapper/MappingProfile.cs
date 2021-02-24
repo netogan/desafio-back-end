@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using Conexa.Application.ViewModel;
+using SpotifyAPI.Web;
+using System.Collections.Generic;
 
 namespace Conexa.Application.AutoMapper
 {
@@ -6,9 +9,16 @@ namespace Conexa.Application.AutoMapper
     {
         public MappingProfile()
         {
-            //CreateMap<Produto, ProdutoViewModel>()
-            //    .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Nome))
-            //    .ForPath(dest => dest.Inventory.Warehouses, opt => opt.MapFrom(src => PreencherDeInventarioParaWarehouse(src.Inventario)));
+            CreateMap<FullTrack, PlaylistResumidaViewModel>()
+                .ForMember(dest => dest.Nome, opt => opt.MapFrom(src => src.Name))
+                .ForMember(dest => dest.Mp3Preview, opt => opt.MapFrom(src => src.PreviewUrl));
+                //.ForMember(dest => dest.Artista, opt => opt.MapFrom(src => src.Artists))
+                //.ForPath(dest => dest.Inventory.Warehouses, opt => opt.MapFrom(src => PreencherDeInventarioParaWarehouse(src.Inventario)));
         }
+
+        //private string UnirArtistas(List<SimpleArtist> artistas)
+        //{
+        //    var nomesArtistas = artistas.
+        //}
     }
 }

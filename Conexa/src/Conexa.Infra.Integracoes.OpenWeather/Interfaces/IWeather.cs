@@ -5,6 +5,6 @@ namespace Conexa.Infra.Integracoes.OpenWeather.Interfaces
 {
     public interface IWeather
     {
-        Task<Clima> ObterClima(string cidade);
+        Task<Clima> ObterPorCidade(string cidade);
     }
 }

@@ -17,7 +17,7 @@ namespace Conexa.Infra.Integracoes.OpenWeather.Services
             _openWeatherConfig = openWeatherConfig.Value;
         }
 
-        public async Task<Clima> ObterClima(string cidade)
+        public async Task<Clima> ObterPorCidade(string cidade)
         {
             var _client = new RestClient(_openWeatherConfig.Url);
             var _request = new RestRequest(Method.GET);

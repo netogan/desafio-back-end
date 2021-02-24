@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DomainValidationCore" Version="1.1.1" />
+    <PackageReference Include="SpotifyAPI.Web" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Conexa.Infra.Integracoes.OpenWeather\Conexa.Infra.Integracoes.OpenWeather.csproj" />

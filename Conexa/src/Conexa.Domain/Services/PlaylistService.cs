@@ -1,27 +1,47 @@
 ﻿using Conexa.Domain.Interfaces.Service;
-using Conexa.Infra.Integracoes.OpenWeather.Config;
 using Conexa.Infra.Integracoes.OpenWeather.Interfaces;
-using Microsoft.Extensions.Options;
+using Conexa.Infra.Integracoes.Spotify.Interfaces;
+using Conexa.Infra.Integracoes.Spotify.Enum;
+using SpotifyAPI.Web;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Conexa.Domain.Services
 {
     public class PlaylistService : IPlaylistService
     {
         public IWeather _weatherService { get; set; }
+        public ITracks _tracksService { get; set; }
 
-        public PlaylistService(IWeather weatherService)
+        public PlaylistService(IWeather weatherService, ITracks tracksService)
         {
             _weatherService = weatherService;
+            _tracksService = tracksService;
         }
 
-        public Task<string> ObterPorCidade(string cidade)
+        public async Task<IEnumerable<FullTrack>> ObterPorCidade(string cidade)
         {
+            var clima = await _weatherService.ObterPorCidade(cidade);
 
-            var result = _weatherService.ObterClima(cidade);
+            var tracks = new List<FullTrack>();
 
+            switch (clima.Main.Temp)
+            {
+                case double n when n > 30:
+                    tracks = await _tracksService.ObterPorGenero(nameof(TipoMusica.Festa));
+                    break;
+                case double n when n >= 15 && n <= 30:
+                    tracks = await _tracksService.ObterPorGenero(nameof(TipoMusica.Pop));
+                    break;
+                case double n when n >= 10 && n <= 14:
+                    tracks = await _tracksService.ObterPorGenero(nameof(TipoMusica.Rock));
+                    break;
+                default:
+                    tracks = await _tracksService.ObterPorGenero(nameof(TipoMusica.Classica));
+                    break;
+            }
 
-            return Task.FromResult(string.Empty);
+            return tracks;
         }
     }
 }

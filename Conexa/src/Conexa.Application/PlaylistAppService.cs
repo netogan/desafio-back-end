@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Conexa.Application.Interface;
+using Conexa.Application.ViewModel;
 using Conexa.Domain.Interfaces.Service;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Conexa.Application
@@ -16,13 +18,13 @@ namespace Conexa.Application
             _mapper = mapper;
         }
 
-        public async Task<string> ObterPorCidade(string cidade)
+        public async Task<IEnumerable<PlaylistResumidaViewModel>> ObterPorCidade(string cidade)
         {
-            var ret = await _playlistService.ObterPorCidade(cidade);
+            var musicas = await _playlistService.ObterPorCidade(cidade);
 
-            return ret;
+            var playlistViewModel = _mapper.Map<IEnumerable<PlaylistResumidaViewModel>>(musicas);
 
-            //return _mapper.Map<ProdutoViewModel>(ret);
+            return playlistViewModel;
         }
     }
 }

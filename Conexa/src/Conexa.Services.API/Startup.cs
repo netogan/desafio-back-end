@@ -7,6 +7,7 @@ using Conexa.Domain.Services;
 using Conexa.Infra.Integracoes.OpenWeather.Config;
 using Conexa.Infra.Integracoes.OpenWeather.Interfaces;
 using Conexa.Infra.Integracoes.OpenWeather.Services;
+using Conexa.Infra.Integracoes.Spotify.Config;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -36,15 +37,19 @@ namespace Conexa.Services.API
 
             services.AddScoped<IWeather, Weather>();
 
-            //var openWeatherConfig = new OpenWeatherConfig();
+            services.AddScoped<Infra.Integracoes.Spotify.Interfaces.IAuth, Infra.Integracoes.Spotify.Services.Auth>();
+            services.AddScoped<Infra.Integracoes.Spotify.Interfaces.ITracks, Infra.Integracoes.Spotify.Services.Tracks>();
 
-            services.Configure<OpenWeatherConfig>(option => Configuration.GetSection("OpenWeatherConfig").Bind(option));
 
-            //openWeatherConfig = Configuration.GetSection("OpenWeatherConfig").Get<OpenWeatherConfig>();
+            //services.Configure<OpenWeatherConfig>(option => Configuration.GetSection("OpenWeatherConfig").Bind(option));
 
-            //services.AddSingleton(openWeatherConfig);
+            //services.Configure<SpotifyConfig>(option => Configuration.GetSection("SpotifyConfig").Bind(option));
 
-            //services.Configure<OpenWeatherConfig>(Configuration.GetSection("OpenWeatherConfig"));
+
+
+            services.Configure<OpenWeatherConfig>(Configuration.GetSection("OpenWeatherConfig"));
+
+            services.Configure<SpotifyConfig>(Configuration.GetSection("SpotifyConfig"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

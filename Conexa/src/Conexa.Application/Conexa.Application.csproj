@@ -6,9 +6,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
+    <PackageReference Include="SpotifyAPI.Web" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Conexa.Domain\Conexa.Domain.csproj" />
