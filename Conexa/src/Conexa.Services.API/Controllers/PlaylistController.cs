@@ -1,5 +1,6 @@
 ﻿using Conexa.Application.Interface;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Conexa.Services.API.Controllers
@@ -21,8 +22,8 @@ namespace Conexa.Services.API.Controllers
         {
             var ret = await _playlistAppService.ObterPorCidade(cidade);
 
-            if (ret == null)
-                return NotFound();
+            if (ret == null || ret.Count() == 0)
+                return NotFound(string.Empty);
 
             return Ok(ret);
         }
