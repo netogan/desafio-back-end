@@ -8,10 +8,6 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["src/Conexa.Services.API/Conexa.Services.API.csproj", "src/Conexa.Services.API/"]
-COPY ["src/Conexa.Infra.Integracoes.OpenWeather/Conexa.Infra.Integracoes.OpenWeather.csproj", "src/Conexa.Infra.Integracoes.OpenWeather/"]
-COPY ["src/Conexa.Infra.Integracoes.Spotify/Conexa.Infra.Integracoes.Spotify.csproj", "src/Conexa.Infra.Integracoes.Spotify/"]
-COPY ["src/Conexa.Application/Conexa.Application.csproj", "src/Conexa.Application/"]
-COPY ["src/Conexa.Domain/Conexa.Domain.csproj", "src/Conexa.Domain/"]
 RUN dotnet restore "src/Conexa.Services.API/Conexa.Services.API.csproj"
 COPY . .
 WORKDIR "/src/src/Conexa.Services.API"
