@@ -2,9 +2,9 @@
 {
     public enum TipoMusica
     {
-        Festa = 1,
+        Party = 1,
         Pop = 2,
         Rock = 3,
-        Classica = 4
+        Classical = 4
     }
 }

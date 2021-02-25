@@ -27,5 +27,16 @@ namespace Conexa.Infra.Integracoes.Spotify.Services
 
             return client;
         }
+
+        public async Task<string> ObterToken()
+        {
+            var config = SpotifyClientConfig.CreateDefault();
+
+            var request = new ClientCredentialsRequest(_spotifyConfig.ClientId, _spotifyConfig.Secret);
+
+            var response = await new OAuthClient(config).RequestToken(request);
+
+            return response.AccessToken;
+        }
     }
 }

@@ -1,4 +1,7 @@
-﻿using Conexa.Infra.Integracoes.Spotify.Interfaces;
+﻿using Conexa.Infra.Integracoes.Spotify.Entidades;
+using Conexa.Infra.Integracoes.Spotify.Interfaces;
+using Newtonsoft.Json;
+using RestSharp;
 using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
@@ -16,33 +19,38 @@ namespace Conexa.Infra.Integracoes.Spotify.Services
             _auth = auth;
         }
 
-        public async Task<List<FullTrack>> ObterPorGenero(string genero)
+        public async Task<List<SimpleTrack>> ObterPorGenero(string genero)
         {
             var tracks = new List<FullTrack>();
 
+            var recommendation = new Recomendation();
+
             try
             {
-                var client = await _auth.ObterClienteComToken();
+                var token = await _auth.ObterToken();
 
-                var searchRequest = new SearchRequest(SearchRequest.Types.Track, genero);
+                var _client = new RestClient("https://api.spotify.com/v1");
+                var _request = new RestRequest(Method.GET);
 
-                searchRequest.Query = $"genre:[{genero}]";
-                searchRequest.Market = "BR";
-                searchRequest.Limit = 50;
+                _request.Resource = $"/recommendations";
 
-                var searchResponse = await client.Search.Item(searchRequest);
+                _request.AddParameter("market", "BR");
+                _request.AddParameter("seed_genres", genero.ToLower());
 
-                searchRequest.Offset = new Random().Next(0, 50);
+                _request.AddHeader("Authorization", $"Bearer {token}");
 
-                searchResponse = await client.Search.Item(searchRequest);
+                var response = await _client.ExecuteAsync(_request);
 
-                tracks = searchResponse.Tracks?.Items;
+                if (response.IsSuccessful)
+                    recommendation = JsonConvert.DeserializeObject<Recomendation>(response.Content);
+                else
+                    recommendation.ErroItem = JsonConvert.DeserializeObject<ErroItem>(response.Content);
             }
             catch (Exception ex)
             {
             }
 
-            return tracks;
+            return recommendation.Tracks;
         }
     }
 }

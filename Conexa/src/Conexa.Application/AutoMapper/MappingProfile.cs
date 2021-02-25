@@ -12,7 +12,10 @@ namespace Conexa.Application.AutoMapper
         {
             CreateMap<FullTrack, PlaylistResumidaViewModel>()
                 .ForMember(dest => dest.Nome, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Mp3Preview, opt => opt.MapFrom(src => src.PreviewUrl))
+                .ForPath(dest => dest.Artista, opt => opt.MapFrom(src => PreencherArtistas(src.Artists)));
+
+            CreateMap<SimpleTrack, PlaylistResumidaViewModel>()
+                .ForMember(dest => dest.Nome, opt => opt.MapFrom(src => src.Name))
                 .ForPath(dest => dest.Artista, opt => opt.MapFrom(src => PreencherArtistas(src.Artists)));
         }
 

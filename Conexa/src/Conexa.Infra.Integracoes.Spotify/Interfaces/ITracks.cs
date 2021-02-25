@@ -6,6 +6,6 @@ namespace Conexa.Infra.Integracoes.Spotify.Interfaces
 {
     public interface ITracks
     {
-        Task<List<FullTrack>> ObterPorGenero(string genero);
+        Task<List<SimpleTrack>> ObterPorGenero(string genero);
     }
 }
