@@ -6,6 +6,7 @@ namespace Conexa.Domain.Interfaces.Service
 {
     public interface IPlaylistService
     {
-        Task<IEnumerable<SimpleTrack>> ObterPorCidade(string cidade);
+        Task<IEnumerable<SimpleTrack>> ObterPorClimaDaCidade(string cidade);
+        Task<IEnumerable<SimpleTrack>> ObterPorClimaDaLocalizacao(decimal latitude, decimal longitude);
     }
 }

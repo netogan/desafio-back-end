@@ -19,13 +19,35 @@ namespace Conexa.Domain.Services
             _tracksService = tracksService;
         }
 
-        public async Task<IEnumerable<SimpleTrack>> ObterPorCidade(string cidade)
+        public async Task<IEnumerable<SimpleTrack>> ObterPorClimaDaCidade(string cidade)
         {
-            var clima = await _weatherService.ObterPorCidade(cidade);
+            var clima = await _weatherService.ObterTemperaturaPorCidade(cidade);
 
+            if (clima.Main?.Temp == null || clima.Main.Temp == double.MinValue)
+                return null;
+
+            var tracks = await RetornarMusicasPorTemperatura(clima.Main.Temp);
+
+            return tracks;
+        }
+
+        public async Task<IEnumerable<SimpleTrack>> ObterPorClimaDaLocalizacao(decimal latitude, decimal longitude)
+        {
+            var clima = await _weatherService.ObterTemperaturaPorLocalizacao(latitude, longitude);
+
+            if (clima.Main?.Temp == null || clima.Main.Temp == double.MinValue)
+                return null;
+
+            var tracks = await RetornarMusicasPorTemperatura(clima.Main.Temp);
+
+            return tracks;
+        }
+
+        private async Task<List<SimpleTrack>> RetornarMusicasPorTemperatura(double temperatura)
+        {
             var tracks = new List<SimpleTrack>();
 
-            switch (clima.Main.Temp)
+            switch (temperatura)
             {
                 case double n when n > 30:
                     tracks = await _tracksService.ObterPorGenero(nameof(TipoMusica.Party));

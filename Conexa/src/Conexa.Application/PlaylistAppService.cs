@@ -18,9 +18,18 @@ namespace Conexa.Application
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<PlaylistResumidaViewModel>> ObterPorCidade(string cidade)
+        public async Task<IEnumerable<PlaylistResumidaViewModel>> ObterPorClimaDaCidade(string cidade)
         {
-            var musicas = await _playlistService.ObterPorCidade(cidade);
+            var musicas = await _playlistService.ObterPorClimaDaCidade(cidade);
+
+            var playlistViewModel = _mapper.Map<IEnumerable<PlaylistResumidaViewModel>>(musicas);
+
+            return playlistViewModel;
+        }
+
+        public async Task<IEnumerable<PlaylistResumidaViewModel>> ObterPorClimaDaLocalizacao(decimal latitude, decimal longitude)
+        {
+            var musicas = await _playlistService.ObterPorClimaDaLocalizacao(latitude, longitude);
 
             var playlistViewModel = _mapper.Map<IEnumerable<PlaylistResumidaViewModel>>(musicas);
 

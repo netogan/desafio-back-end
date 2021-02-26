@@ -1,5 +1,6 @@
 ﻿using Conexa.Application.Interface;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,10 +18,23 @@ namespace Conexa.Services.API.Controllers
         }
 
         [HttpGet]
-        [Route("ObterPorCidade")]
-        public async Task<ActionResult> ObterPorCidade(string cidade)
+        [Route("ObterPorClimaDaCidade")]
+        public async Task<ActionResult> ObterPorClimaDaCidade(string cidade)
         {
-            var ret = await _playlistAppService.ObterPorCidade(cidade);
+            var ret = await _playlistAppService.ObterPorClimaDaCidade(cidade);
+
+            if (ret == null || ret.Count() == 0)
+                return NotFound(string.Empty);
+
+            return Ok(ret);
+        }
+
+
+        [HttpGet]
+        [Route("ObterPorClimaDaLocalizacao")]
+        public async Task<ActionResult> ObterPorClimaDaLocalizacao(decimal latitude, decimal longitude)
+        {
+            var ret = await _playlistAppService.ObterPorClimaDaLocalizacao(latitude, longitude);
 
             if (ret == null || ret.Count() == 0)
                 return NotFound(string.Empty);
